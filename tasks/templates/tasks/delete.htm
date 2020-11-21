@@ -1,0 +1,53 @@
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+  crossorigin="anonymous"
+/>
+
+<style>
+  body {
+    background-color: #638cb8;
+  }
+
+  form {
+    margin-top: 17px;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  input[type='checkbox'] {
+    margin-left: 6px;
+  }
+
+  .center-column {
+    width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 6px 2px 30px 0px rgba(0, 0, 0, 0.75);
+  }
+</style>
+
+<div class="center-column">
+  <h5>Are you sure you want to delete "{{item}}"?</h5>
+
+  <div class="flex">
+    <a class="btn btn-info" href="{% url 'list' %}">Cancel</a>
+
+    <form method="POST" action="">
+      {% csrf_token %}
+      <input
+        class="btn btn-danger"
+        type="submit"
+        name="Delete Task"
+        value="Confirm"
+      />
+    </form>
+  </div>
+</div>
